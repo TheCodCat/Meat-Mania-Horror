@@ -40,11 +40,14 @@ public class Settings : MonoBehaviour
         QualitySettings.SetQualityLevel(index);
     }
 
-    public void changeFullScreen(bool full) => Screen.fullScreen = full;
+    public void changeFullScreen(bool full)
+    {
+        Screen.fullScreen = full;
+    }
 
     public void ChangeResolution(int index)
     {
-        Screen.SetResolution(resolutions[index].width, resolutions[index].height, _toggleFullScreen);
+        Screen.SetResolution(resolutions[index].width, resolutions[index].height, _toggleFullScreen.isOn);
     }
 
     public void ChangeGlobalVolume(float value)
