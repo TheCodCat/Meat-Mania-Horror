@@ -9,8 +9,12 @@ public class Settings : MonoBehaviour
     Resolution[] resolutions;
     [SerializeField] private TMP_Dropdown _resolution;
     [SerializeField] private TMP_Dropdown _quality;
-    [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private Toggle _toggleFullScreen;
+    [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private Slider _slider;
+
+    private float _minV = -60;
+    private float _maxV = 0;
     private void Start()
     {
         resolutions = Screen.resolutions;
@@ -24,6 +28,11 @@ public class Settings : MonoBehaviour
         int indexQuality = QualitySettings.GetQualityLevel();
         _quality.SetValueWithoutNotify(indexQuality);
         _quality.RefreshShownValue();
+
+        _audioMixer.GetFloat("AllVolume", out float volume);
+        Debug.Log(Mathf.Lerp(_maxV,_minV,volume));
+
+        _slider.SetValueWithoutNotify(Mathf.Lerp(_maxV,_minV, volume));
     }
 
     public void ChangeQuality(int index)

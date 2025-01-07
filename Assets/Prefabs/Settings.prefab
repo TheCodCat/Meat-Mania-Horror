@@ -536,8 +536,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resolution: {fileID: 1346064888757425224}
   _quality: {fileID: 6375744846903360353}
-  AudioMixer: {fileID: 24100000, guid: 4801dfca4ebc14c45a5faf04fa2fdb76, type: 2}
   _toggleFullScreen: {fileID: 6297318420516187015}
+  _audioMixer: {fileID: 24100000, guid: 4801dfca4ebc14c45a5faf04fa2fdb76, type: 2}
+  _slider: {fileID: 5693064218554316467}
 --- !u!1 &2083331075751200115
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +841,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2779641586026364104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0000069885573}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -850,8 +851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -50, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &2885150148884258989
 GameObject:
@@ -2237,8 +2238,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 7407037993538210269}
   m_HandleRect: {fileID: 4238430879448687937}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -60
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

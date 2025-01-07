@@ -9546,15 +9546,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Settings
       objectReference: {fileID: 0}
-    - target: {fileID: 3944833211337425765, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+    - target: {fileID: 4238430879448687937, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
         type: 3}
-      propertyPath: _audioMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 4801dfca4ebc14c45a5faf04fa2fdb76,
-        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4238430879448687937, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238430879448687937, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5804196036600840477, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
@@ -9655,6 +9659,11 @@ PrefabInstance:
     - target: {fileID: 5804196036600840477, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407037993538210269, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7407037993538210269, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
