@@ -128,6 +128,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8576476811277439215}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &22042427 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3944833211337425765, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8576476811277439215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6615b6490baa474cae811fffdcb4c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &92238462
 GameObject:
   m_ObjectHideFlags: 0
@@ -7023,12 +7035,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1751432337}
           m_TargetAssemblyTypeName: CutScenesController, Assembly-CSharp
-          m_MethodName: ChangeCutScene
-          m_Mode: 2
+          m_MethodName: ExitGame
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 1101078367}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Playables.PlayableDirector,
-              UnityEngine
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -9110,7 +9121,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 6a5e0d168264483439eff9d292406a88, type: 2}
   m_InitialState: 0
-  m_WrapMode: 0
+  m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -9541,6 +9552,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 769473866}
     m_Modifications:
+    - target: {fileID: 1346064888757425224, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346064888757425224, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346064888757425224, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 22042427}
+    - target: {fileID: 1346064888757425224, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346064888757425224, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeResolution
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346064888757425224, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Settings, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346064888757425224, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1704397695729374345, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
         type: 3}
       propertyPath: m_Name
@@ -9560,6 +9606,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693064218554316467, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693064218554316467, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693064218554316467, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 22042427}
+    - target: {fileID: 5693064218554316467, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693064218554316467, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeGlobalVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693064218554316467, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Settings, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693064218554316467, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5804196036600840477, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
         type: 3}
@@ -9660,6 +9741,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375744846903360353, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375744846903360353, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375744846903360353, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 22042427}
+    - target: {fileID: 6375744846903360353, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375744846903360353, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeQuality
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375744846903360353, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Settings, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375744846903360353, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7407037993538210269, guid: 7e89389e7b33ac649bdac21d7f68a3cb,
         type: 3}
