@@ -163,6 +163,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Timeline",
+            "id": "fa9c1f5a-bc3b-4f19-a820-766a79535640",
+            "actions": [
+                {
+                    "name": "Continue",
+                    "type": "Button",
+                    "id": "4ad32912-2ff3-4bd9-9562-77245f8a383a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "42666804-0e8b-4bec-89a6-aad2cef584e4",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private CharacterController _controller;
-    [SerializeField] private Transform _player;
     [SerializeField] private float _speed;
 
+    private Transform _player;
+    private CharacterController _controller;
     private bool _isGround;
     private Vector2 _inputDirection;
     private Vector3 _moveDirecotion;
@@ -14,6 +15,14 @@ public class PlayerMover : MonoBehaviour
     private const float _gravity = -9.8f;
     private const float _defaultSpeed = 5f;
     private const float _sprintSpeed = 8f;
+
+    [Inject]
+    public void Construct(CharacterController controller, Transform Player)
+    {
+        Debug.Log("получилось получить компонент");
+        _controller = controller;
+        _player = Player;
+    }
 
     private void Update()
     {
