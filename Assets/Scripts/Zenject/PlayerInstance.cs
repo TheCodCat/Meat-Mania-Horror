@@ -11,6 +11,7 @@ public class PlayerInstance : MonoInstaller
     [SerializeField] private CharacterController characterController;
     [Header("LookAt")]
     [SerializeField] private CinemachineVirtualCamera _head;
+    [SerializeField] private Camera _camera;
     [SerializeField] private SaveController _saveController;
     public override void InstallBindings()
     {
@@ -20,5 +21,6 @@ public class PlayerInstance : MonoInstaller
         Container.BindInstance(_head);
         Container.BindInstance(PlayerInput);
         Container.BindInstance(_saveController);
+        Container.BindInstance(_camera);
     }
 }
