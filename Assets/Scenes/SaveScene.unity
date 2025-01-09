@@ -374,7 +374,7 @@ PrefabInstance:
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
@@ -395,7 +395,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1038933444}
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -414,7 +414,7 @@ PrefabInstance:
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitSaves
+      value: Drawning
       objectReference: {fileID: 0}
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
@@ -919,9 +919,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1456427106}
   - component: {fileID: 1456427108}
-  - component: {fileID: 1456427109}
   m_Layer: 0
-  m_Name: SaveController
+  m_Name: SaveControllerPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -965,19 +964,6 @@ PlayableDirector:
     m_References:
     - 0abd2c79fb63b85479982bf8c9b3b73d: {fileID: 1068076824}
     - 256c2600c62fd4d45ba667e4e240f34e: {fileID: 5664673}
---- !u!114 &1456427109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456427105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b43d619029f53db43b5055b71ea166ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playableDirector: {fileID: 1456427108}
 --- !u!1 &1985038556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,6 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playableDirector: {fileID: 1456427108}
+  _meshRenderer: {fileID: 1985038558}
 --- !u!1 &2082326155
 GameObject:
   m_ObjectHideFlags: 0
