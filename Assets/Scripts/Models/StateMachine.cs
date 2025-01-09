@@ -1,6 +1,6 @@
 ﻿namespace Assets.Scripts.Models
 {
-    public class StateMashine
+    public class StateMachine
     {
         public State CurrentState { get;private set; }
 

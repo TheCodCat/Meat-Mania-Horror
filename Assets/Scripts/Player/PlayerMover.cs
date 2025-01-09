@@ -23,7 +23,7 @@ public class PlayerMover : MonoBehaviour
     private const float _defaultSpeedOach = 3f;
     private const float _sprintSpeedOach = 4f;
     private bool _isOach;
-    private const float _maxHeight = 1.8f;
+    private const float _maxHeight = 1.7f;
     [Inject]
     public void Construct(CharacterController controller, Transform Player, CinemachineVirtualCamera cinemachineVirtualCamera)
     {
