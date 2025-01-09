@@ -16,6 +16,9 @@ public class SaveController : MonoBehaviour
     private Camera _camera;
     Vector2 _mousePosition;
 
+    RaycastHit _raycastHit;
+    Ray _ray;
+
     [Inject]
     public void Construct(Camera camera)
     {
@@ -36,11 +39,11 @@ public class SaveController : MonoBehaviour
 
     public void ExitSaves()
     {
+        Component?.Init();
         Debug.Log("Выходим из сохранения");
         CurrentPlayableDirector?.Stop();
         PlayerChangeMap.Instance.ChangeState(PlayerState.Game);
         CurrentPlayableDirector = null;
-        Component?.Init();
     }
 
     public void ExitSaves(InputAction.CallbackContext callbackContext)
@@ -54,21 +57,30 @@ public class SaveController : MonoBehaviour
     public async void Drawning(InputAction.CallbackContext callbackContext)
     {
         _drawning = callbackContext.ReadValueAsButton();
+
+        _ray = _camera.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+        Debug.DrawRay(_ray.origin, _ray.direction,Color.red, 10f);
+
+        if (Physics.Raycast(_ray, out _raycastHit))
+        {
+            if (_raycastHit.transform.TryGetComponent(out Component))
+                Component.Init();
+        }
+
         if (callbackContext.performed)
         {
             Debug.Log(_drawning);
 
             while (_drawning)
             {
-                Ray ray = _camera.ScreenPointToRay(_mousePosition);
-                Debug.DrawRay(ray.origin,ray.direction,Color.red, 10f);
-
-                if(Physics.Raycast(ray, out RaycastHit hitInfo))
+                _ray = _camera.ScreenPointToRay(_mousePosition);
+                if (Physics.Raycast(_ray, out _raycastHit))
                 {
-                    if(hitInfo.transform.TryGetComponent(out Component))
+                    if(_raycastHit.transform.TryGetComponent(out IDrawning Component))
                     {
-                        Component.Draw(hitInfo.textureCoord);
+                        Component.Draw(_raycastHit.textureCoord);
                     }
+                    else ExitSaves();
                 }
 
                 await UniTask.Yield();
