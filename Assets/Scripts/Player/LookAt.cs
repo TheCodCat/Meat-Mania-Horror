@@ -7,7 +7,7 @@ public class LookAt : MonoBehaviour
 {
     [SerializeField, Range(0,1)] private float _sensetivity;
     private Transform _body;
-    private Transform _camera;
+    private CinemachineVirtualCamera _camera;
 
     private Vector2 _rotation;
 
@@ -19,7 +19,7 @@ public class LookAt : MonoBehaviour
     {
         Debug.Log("Все ок");
         _body = body;
-        _camera = head.transform;
+        _camera = head;
     }
 
     public void Look(InputAction.CallbackContext callbackContext)
@@ -30,12 +30,12 @@ public class LookAt : MonoBehaviour
         _rotation.x = Mathf.Clamp(_rotation.x, MinX,MaxX);
 
         _body.localRotation = Quaternion.Euler(0,_rotation.y,0);
-        _camera.localRotation = Quaternion.Euler(_rotation.x,0,0);
+        _camera.transform.localRotation = Quaternion.Euler(_rotation.x,0,0);
     }
 
     public void Init()
     {
-        _rotation.x = _camera.rotation.y;
+        _rotation.x = _camera.transform.rotation.y;
         _rotation.y = _body.rotation.x;
     }
 }

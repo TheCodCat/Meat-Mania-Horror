@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -5,23 +6,31 @@ using Zenject;
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
-
+    [SerializeField, Range(0, 1.7f)] private float _minHeight;
+    private Vector3 _currectHeight;
     private Transform _player;
     private CharacterController _controller;
+    private CinemachineVirtualCamera _cinemachineVirtualCamera;
     private bool _isGround;
     private Vector2 _inputDirection;
     private Vector3 _moveDirecotion;
 
     private const float _gravity = -9.8f;
-    private const float _defaultSpeed = 5f;
-    private const float _sprintSpeed = 8f;
 
+    private const float _defaultSpeed = 5f;
+    private const float _sprintSpeed = 6f;
+
+    private const float _defaultSpeedOach = 3f;
+    private const float _sprintSpeedOach = 4f;
+    private bool _isOach;
+    private const float _maxHeight = 1.8f;
     [Inject]
-    public void Construct(CharacterController controller, Transform Player)
+    public void Construct(CharacterController controller, Transform Player, CinemachineVirtualCamera cinemachineVirtualCamera)
     {
         Debug.Log("получилось получить компонент");
         _controller = controller;
         _player = Player;
+        _cinemachineVirtualCamera = cinemachineVirtualCamera;
     }
 
     private void Update()
@@ -50,10 +59,37 @@ public class PlayerMover : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext callbackContext)
     {
-        Debug.Log(callbackContext);
-
-        if(callbackContext.started)
+        if (callbackContext.performed && _isOach)
+            _speed = _sprintSpeedOach;
+        else if(callbackContext.performed && !_isOach)
             _speed = _sprintSpeed;
-        else if(callbackContext.canceled) _speed = _defaultSpeed;
+
+        if (callbackContext.canceled && _isOach)
+            _speed = _defaultSpeedOach;
+
+        else if(callbackContext.canceled && !_isOach)
+            _speed = _defaultSpeed;
+    }
+
+    public void Oath(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.performed)
+        {
+            _isOach = !_isOach;
+
+            if (_isOach)
+            {
+                _speed = _defaultSpeedOach;
+                _currectHeight.y = _minHeight;
+            }
+            else
+            {
+                _speed = _defaultSpeed;
+                _currectHeight.y = _maxHeight;
+            }
+            _cinemachineVirtualCamera.transform.localPosition = _currectHeight;
+            _controller.height = _currectHeight.y;
+            _controller.center = _currectHeight / 2;
+        }
     }
 }
