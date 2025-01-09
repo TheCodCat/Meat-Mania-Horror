@@ -1,4 +1,4 @@
 ﻿public enum PlayerState
 {
-    CutScene, Game
+    CutScene, Game, Save
 }

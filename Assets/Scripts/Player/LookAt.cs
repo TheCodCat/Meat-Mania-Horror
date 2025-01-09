@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -14,7 +15,7 @@ public class LookAt : MonoBehaviour
     private const float MaxX = 80;
 
     [Inject]
-    public void Construct(Transform body, Camera head)
+    public void Construct(Transform body, CinemachineVirtualCamera head)
     {
         Debug.Log("Все ок");
         _body = body;

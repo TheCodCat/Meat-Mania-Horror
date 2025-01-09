@@ -30,6 +30,7 @@ public class PlayerChangeMap : MonoBehaviour
         {
             PlayerState.CutScene => "Timeline",
             PlayerState.Game => "Game",
+            PlayerState.Save => "Save",
             _ => "Game"
         };
 

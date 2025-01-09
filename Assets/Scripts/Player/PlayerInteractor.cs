@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -8,7 +9,7 @@ public class PlayerInteractor : MonoBehaviour
     private Transform _camera;
 
     [Inject]
-    public void Construct(Camera camera)
+    public void Construct(CinemachineVirtualCamera camera)
     {
         _camera = camera.transform;
     }

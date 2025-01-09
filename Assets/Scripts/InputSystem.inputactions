@@ -191,6 +191,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Save",
+            "id": "87a200b1-6ecf-4f14-8c51-e0e0b9e8e064",
+            "actions": [
+                {
+                    "name": "Active",
+                    "type": "Button",
+                    "id": "4ab40a97-cdf0-4c83-a92b-d5d5330387b3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "74918027-37f3-41cd-934b-8cc39eb241bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "be64aaba-ba55-4259-8234-e6fe68b2c36e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Active",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b64a41a-f68e-4587-9d39-f236cf385aa4",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
