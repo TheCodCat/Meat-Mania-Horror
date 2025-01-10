@@ -44,6 +44,7 @@ public class CutScenesController : MonoBehaviour
 
     public void ResumeGame()
     {
+
         _resumeGame.Play();
     }
 }
