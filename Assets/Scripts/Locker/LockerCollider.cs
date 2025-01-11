@@ -1,12 +1,16 @@
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class LockerCollider : MonoBehaviour, IInteractable
 {
-    [SerializeField] Animator _animator;
-    public const string OPEN_KEY = "Open";
+    [SerializeField] private LockerController _controller;
+
+    //[SerializeField] Animator _animator;
+    //public const string OPEN_KEY = "Open";
 
     public void Interact()
     {
-        _animator.SetTrigger(OPEN_KEY);
+        _controller.Interact();
+        //_animator.SetTrigger(OPEN_KEY);
     }
 }

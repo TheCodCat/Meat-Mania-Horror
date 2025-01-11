@@ -39,7 +39,8 @@ public class PlayerChangeMap : MonoBehaviour
             PlayerState.Game => "Game",
             PlayerState.Save => "Save",
             PlayerState.Pause => "Pause",
-            _ => "Game"
+            PlayerState.Inside => "Inside",
+            _ => "Pause"
         };
 
         switch (playerState)
