@@ -39,10 +39,12 @@ public class SaveController : MonoBehaviour
 
     public void ExitSaves()
     {
+        Component.Exit();
         Component?.Init();
         Debug.Log("Выходим из сохранения");
         CurrentPlayableDirector?.Stop();
         PlayerChangeMap.Instance.ChangeState(PlayerState.Game);
+        
         CurrentPlayableDirector = null;
     }
 
@@ -59,12 +61,14 @@ public class SaveController : MonoBehaviour
         _drawning = callbackContext.ReadValueAsButton();
 
         _ray = _camera.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
-        Debug.DrawRay(_ray.origin, _ray.direction,Color.red, 10f);
+        Debug.DrawRay(_ray.origin, _ray.direction, Color.red, 10f);
 
         if (Physics.Raycast(_ray, out _raycastHit))
         {
-            if (_raycastHit.transform.TryGetComponent(out Component))
-                Component.Init();
+            if (_raycastHit.transform.TryGetComponent(out IDrawning component))
+            {
+                Component = component;
+            }
         }
 
         if (callbackContext.performed)

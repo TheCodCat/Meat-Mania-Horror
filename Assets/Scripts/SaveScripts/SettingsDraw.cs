@@ -4,6 +4,6 @@ using UnityEngine;
 public class SettingsDraw : ScriptableObject
 {
     public int BrushSuze;
-    public Vector2Int SizeTexture;
+    public Texture2D Texture2D;
     [Range(0, 1)] public float FillAmound;
 }

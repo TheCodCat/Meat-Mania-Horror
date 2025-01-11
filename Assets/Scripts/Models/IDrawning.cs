@@ -7,5 +7,7 @@ namespace Assets.Scripts.Models
         public void Draw(Vector2 uvposition);
 
         public void Init();
+
+        public void Exit();
     }
 }
