@@ -1,7 +1,5 @@
 using Assets.Scripts.Models;
 using Cysharp.Threading.Tasks;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -11,11 +9,13 @@ using Zenject;
 public class SaveTest : MonoBehaviour, IInteractable, IDrawning
 {
     public bool Saves {get; private set;}
+
     [SerializeField] private PlayableDirector _playableDirector;
     [SerializeField] private FilterMode _filterMode;
     [SerializeField] private Image _proggerssBar;
     [Header("Сохранение")]
     [SerializeField] private MeshRenderer _meshRenderer;
+    [SerializeField] private Transform _savePoint;
     private SettingsDraw _settingsDraw;
     private SaveController _controller;
     private Texture2D _meshTexture;
@@ -27,12 +27,12 @@ public class SaveTest : MonoBehaviour, IInteractable, IDrawning
         Debug.Log("Все окк333");
         _settingsDraw = settingsDraw;
         _controller = controller;
-        //Init();
     }
     private void Start()
     {
         Init();
     }
+
     public async void Draw(Vector2 uvPos)
     {
         Debug.Log("Рисую");
@@ -60,7 +60,7 @@ public class SaveTest : MonoBehaviour, IInteractable, IDrawning
 
         if (amound >= _settingsDraw.FillAmound)
         {
-            _controller.SaveGud();
+            _controller.SaveGud(_savePoint.position);
         }
     }
 

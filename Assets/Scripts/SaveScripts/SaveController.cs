@@ -5,6 +5,8 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Zenject;
 using Assets.Scripts.Models;
+using Assets.Scripts.SaveScripts;
+using System.IO;
 
 public class SaveController : MonoBehaviour
 {
@@ -19,10 +21,28 @@ public class SaveController : MonoBehaviour
     RaycastHit _raycastHit;
     Ray _ray;
 
+    private CharacterController _characterController;
+    [SerializeField] private string _fileName;
+    [SerializeField] private string _dataPathData;
+    [SerializeField] private PlayerData _playerData;
+    private void Awake()
+    {
+        _dataPathData = Path.Combine(Application.persistentDataPath,_fileName);
+
+        if (File.Exists(_dataPathData))
+        {
+            _playerData = DataSaver.Deserializable<PlayerData>(_dataPathData);
+
+            Vector3 startPosition = new Vector3(_playerData.Position.X, _playerData.Position.Y, _playerData.Position.Z);
+            _characterController.transform.position = startPosition;
+        }
+    }
+
     [Inject]
-    public void Construct(Camera camera)
+    public void Construct(Camera camera, CharacterController characterController)
     {
         _camera = camera;
+        _characterController = characterController;
     }
 
     /// <summary>
@@ -99,8 +119,14 @@ public class SaveController : MonoBehaviour
         _mousePosition = callbackContext.ReadValue<Vector2>();
     }
 
-    public void SaveGud()
+    public void SaveGud(Vector3 vector3)
     {
+        PlayerData playerData = new PlayerData();
+        playerData.Position = new MyVector3(vector3.x, vector3.y, vector3.z);
+        _playerData.Position = playerData.Position;
+        DataSaver.Serializable(_dataPathData, _playerData);
+
+
         ExitSaves();
         Debug.Log("Сохранение прошло");
     }
