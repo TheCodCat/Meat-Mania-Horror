@@ -40,6 +40,7 @@ public class PlayerChangeMap : MonoBehaviour
             PlayerState.Save => "Save",
             PlayerState.Pause => "Pause",
             PlayerState.Inside => "Inside",
+            PlayerState.BreakingLock => "BreakingLock",
             _ => "Pause"
         };
 
