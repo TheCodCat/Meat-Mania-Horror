@@ -8,9 +8,15 @@ public class Enemy : MonoBehaviour
     public CharacterController Player { get; set; }
     public LayerMask LayerMask;
     public EnemyParametrs EnemyParametrs;
-
+    public Transform Head;
+    public FieldOfView FieldOfView;
     public const string IDLE_KEY = "Idle";
-    public const string WALK_KEY = "Walk";
+    public const string WALK_KEY = "IsTarget";
+    public const string LOOK_KEY = "Look";
+    public const string Patroll_KEY = "Patroll";
+    public const string ATTACK_KEY = "Attack";
+
+    public Transform[] WPF;
 
     [Inject]
     public void Construct(CharacterController player)
@@ -24,7 +30,12 @@ public class Enemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, EnemyParametrs.MinRadius);
 
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, EnemyParametrs.MaxRadius);
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawWireSphere(transform.position, EnemyParametrs.MaxRadius);
+    }
+
+    public void SetTarget(CharacterController player)
+    {
+        Player = player;
     }
 }
