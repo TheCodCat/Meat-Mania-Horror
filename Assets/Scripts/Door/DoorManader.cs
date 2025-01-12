@@ -31,7 +31,7 @@ public class DoorManader : MonoBehaviour
 
         _currentDoor.Transform.localEulerAngles = _currentDoor.Rotation;
 
-        if(_currentDoor.Transform.eulerAngles.y <= _openRotate + 10 && _currentDoor.Transform.localEulerAngles.y >= -_openRotate - 10)
+        if(_currentDoor.Rotation.y <= _openRotate + 5 && _currentDoor.Rotation.y >= _openRotate - 5)
         {
             Debug.Log("Дверь открыта");
             _currentDoor.Animator.SetTrigger("Open");
