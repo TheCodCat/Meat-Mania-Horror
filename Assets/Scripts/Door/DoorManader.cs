@@ -19,6 +19,7 @@ public class DoorManader : MonoBehaviour
         _inputRotateObject += callbackContext.ReadValue<Vector2>().x * _rotateMoment;
 
         _inputRotateObject %= 360;
+        _currentDoor.Rotation.y %= 360;
 
         _currentDoor.Rotation = _vectorRotate switch
         {
