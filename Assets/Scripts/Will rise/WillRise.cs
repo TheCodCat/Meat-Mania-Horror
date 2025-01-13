@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class WillRise : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private PlayableDirector _playableDirector;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.transform.TryGetComponent(out CharacterController component))
+        {
+            _playableDirector.Play();
+        }
+    }
+    public void LoadScene(string name)
+    {
+        LoadSceneManager.Instance.LoadSceneName(name);
     }
 }

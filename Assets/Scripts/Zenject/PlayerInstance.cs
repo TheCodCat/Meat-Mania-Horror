@@ -9,6 +9,7 @@ public class PlayerInstance : MonoInstaller
     [Header("Mover")]
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private PlayerMover _playerMover;
     [Header("LookAt")]
     [SerializeField] private CinemachineVirtualCamera _head;
     [SerializeField] private Camera _camera;
@@ -18,6 +19,8 @@ public class PlayerInstance : MonoInstaller
         Container.Bind<CharacterController>().FromInstance(characterController);
         Container.Bind<Transform>().FromInstance(_playerTransform);
 
+
+        Container.BindInstance(_playerMover);
         Container.BindInstance(_head);
         Container.BindInstance(PlayerInput);
         Container.BindInstance(_saveController);

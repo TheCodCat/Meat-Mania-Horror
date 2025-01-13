@@ -23,6 +23,7 @@ public class PlayerMover : MonoBehaviour
     private const float _defaultSpeedOach = 3f;
     private const float _sprintSpeedOach = 4f;
     private bool _isOach;
+    public bool IsSprint { get; private set; }
     private const float _maxHeight = 1.7f;
     [Inject]
     public void Construct(CharacterController controller, Transform Player, CinemachineVirtualCamera cinemachineVirtualCamera)
@@ -59,6 +60,7 @@ public class PlayerMover : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext callbackContext)
     {
+        IsSprint = !IsSprint;
         if (callbackContext.performed && _isOach)
             _speed = _sprintSpeedOach;
         else if(callbackContext.performed && !_isOach)

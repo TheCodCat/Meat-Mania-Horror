@@ -4,6 +4,11 @@
     {
         public State CurrentState { get;private set; }
 
+        public void SetStartState(State state)
+        {
+            CurrentState = state;
+        }
+
         public void UpdateState()
         {
             CurrentState.UpdateState();

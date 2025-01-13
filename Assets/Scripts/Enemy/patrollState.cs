@@ -1,54 +1,45 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class patrollState : StateMachineBehaviour
+namespace Assets.Scripts.Enemy
 {
-    private Enemy _myEnemy;
-    private int _pointIndex;
-    bool _playerCan;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public class PatrollState : State
     {
-        if (animator.transform.parent.TryGetComponent(out _myEnemy))
-        {
-            Debug.Log("����� ����");
-            _myEnemy.Agent.autoBraking = false;
-            _myEnemy.Agent.stoppingDistance = 0;
-            _pointIndex++;
-            _pointIndex %= _myEnemy.WPF.Length;
+        private EnemyAI _enemyAI;
 
-            _myEnemy.Agent.SetDestination(_myEnemy.WPF[_pointIndex].position);
+        public PatrollState(EnemyAI enemyAI)
+        {
+            _enemyAI = enemyAI;
+        }
+        public override void StartState()
+        {
+            _enemyAI.AI_Agent.stoppingDistance = 0;
+            _enemyAI.AI_Enemy = AI_State.Patrol;
+            _enemyAI.Animator.SetTrigger(EnemyAI.PATROLL_KEY);
+        }
+
+        public override void UpdateState()
+        {
+            if (_enemyAI.FieldOfView.FieldOfViewCheck())
+            {
+                Debug.Log("Логика приследования");
+                _enemyAI.StateMachine.ChangeState(_enemyAI.ChaseState);
+            }
+            else
+            {
+                _enemyAI.AI_Agent.SetDestination(_enemyAI.WayPoints[_enemyAI.Current_Patch].transform.position);
+                if (_enemyAI.AI_Agent.remainingDistance <= 1)
+                {
+                    _enemyAI.Current_Patch++;
+                    _enemyAI.Current_Patch = _enemyAI.Current_Patch % _enemyAI.WayPoints.Length;
+                }
+            }
+
+        }
+
+        public override void EndState()
+        {
+            Debug.Log("Остановочка");
+            _enemyAI.AI_Agent.SetDestination(_enemyAI.AI_Agent.transform.position);
         }
     }
-
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        _playerCan = _myEnemy.FieldOfView.RayToScan();
-        if (_playerCan) animator.SetTrigger(Enemy.WALK_KEY);
-
-        if (_myEnemy.Agent.remainingDistance <= 0.5)
-        {
-            animator.SetBool(Enemy.LOOK_KEY, true);
-        }
-    }
-
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        _myEnemy.Agent.SetDestination(_myEnemy.transform.position);
-        _myEnemy.Agent.autoBraking = true;
-        _myEnemy.Agent.stoppingDistance = _myEnemy.EnemyParametrs.DistanseStopping;
-    }
-
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
-
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
 }

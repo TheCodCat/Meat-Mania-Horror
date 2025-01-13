@@ -1,62 +1,52 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    [SerializeField] private int _raysCount;
-    [SerializeField] private int _distance;
-    [SerializeField] private float _angle;
-    [SerializeField] private Vector3 _offset;
-    [SerializeField] private Transform _target;
+    public float radius;
+    [Range(0, 360)]
+    public float angle;
 
-    bool GetRaycast(Vector3 dir)
+    public GameObject playerRef;
+
+    public LayerMask targetMask;
+    public LayerMask ObstacleMask;
+    public bool canSeePlayer;
+
+    public bool FieldOfViewCheck()
     {
-        bool result = false;
-        RaycastHit hit = new RaycastHit();
-        Vector3 position = transform.position + _offset;
-        if (Physics.Raycast(position, dir, out hit, _distance))
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+
+        if (rangeChecks.Length != 0)
         {
-            if (hit.transform == _target)
+            Transform target = rangeChecks[0].transform;
+            Vector3 directionToTarget = (target.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
             {
-                result = true;
-                Debug.DrawLine(position, hit.point, Color.green);
-            }
+                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, ObstacleMask))
+                    canSeePlayer = true;
+
             else
             {
-                Debug.DrawLine(position, hit.point, Color.blue);
+                if (playerRef.GetComponent<PlayerMover>().IsSprint == true)
+                {
+                    canSeePlayer = true;
+                }
+                else
+                {
+                    canSeePlayer = false;
+                }
             }
-        }
-        else
-        {
-            Debug.DrawRay(position, dir * _distance, Color.red);
-        }
-        return result;
-    }
-
-    public bool RayToScan()
-    {
-        bool result = false;
-        bool a = false;
-        bool b = false;
-        float j = 0;
-
-        for (int i = 0; i < _raysCount; i++)
-        {
-            var x = Mathf.Sin(j);
-            var y = Mathf.Cos(j);
-
-            j += +_angle * Mathf.Deg2Rad / _raysCount;
-
-            Vector3 dir = transform.TransformDirection(new Vector3(x, 0, y));
-            if (GetRaycast(dir)) a = true;
-
-            if (x != 0)
-            {
-                dir = transform.TransformDirection(new Vector3(-x, 0, y));
-                if (GetRaycast(dir)) b = true;
+                    
             }
+            else
+                canSeePlayer = false;
         }
+        else if (canSeePlayer)
+            canSeePlayer = false;
 
-        if (a || b) result = true;
-        return result;
+        return canSeePlayer;
     }
 }

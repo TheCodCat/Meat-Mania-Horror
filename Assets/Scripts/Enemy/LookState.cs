@@ -1,48 +1,45 @@
+﻿using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
 
-public class LookState : StateMachineBehaviour
+namespace Assets.Scripts.Enemy
 {
-    private Enemy _myEnemy;
-    private Ray _ray;
-    bool _playerCan;
-    bool _isMin;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public class LookState : State
     {
-        if (animator.transform.parent.TryGetComponent(out _myEnemy))
+        private EnemyAI _enemyAI;
+        public LookState(EnemyAI enemyAI) 
         {
-            Debug.Log("����� ����");
+            _enemyAI = enemyAI;
+        }
+
+        public override async void StartState()
+        {
+            _enemyAI.AI_Enemy = AI_State.Stay;
+
+            _enemyAI.Animator.SetTrigger(EnemyAI.LOOK_KEY);
+
+            if (_enemyAI.FieldOfView.FieldOfViewCheck())
+            {
+                Debug.Log("Приследование");
+                _enemyAI.StateMachine.ChangeState(_enemyAI.ChaseState);
+            }
+
+                await UniTask.Delay(TimeSpan.FromSeconds(UnityEngine.Random.Range(2, 4)));
+
+            if (_enemyAI.FieldOfView.FieldOfViewCheck())
+            {
+                Debug.Log("Приследование");
+                _enemyAI.StateMachine.ChangeState(_enemyAI.ChaseState);
+            }
+            else
+            {
+                _enemyAI.StateMachine.ChangeState(_enemyAI.PatrollState);
+            }
+
+        }
+        public override void EndState()
+        {
+            _enemyAI.Check_LastPoint = false;
         }
     }
-
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        _playerCan = _myEnemy.FieldOfView.RayToScan();
-        Debug.Log(_playerCan);
-        _isMin = Physics.CheckSphere(_myEnemy.transform.position, _myEnemy.EnemyParametrs.MinRadius, _myEnemy.LayerMask);
-        if (_isMin) animator.SetTrigger(Enemy.ATTACK_KEY);
-        if (_playerCan)
-        {
-            animator.SetBool(Enemy.WALK_KEY, true);
-        }
-    }
-
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        animator.SetBool(Enemy.LOOK_KEY, false);
-    }
-
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
-
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
 }
