@@ -10,6 +10,7 @@ using System.IO;
 
 public class SaveController : MonoBehaviour
 {
+
     public PlayableDirector CurrentPlayableDirector { get;set; }
     private IDrawning Component;
 
@@ -25,12 +26,15 @@ public class SaveController : MonoBehaviour
     [SerializeField] private string _fileName;
     [SerializeField] private string _dataPathData;
     [SerializeField] private PlayerData _playerData;
+    [SerializeField] private bool _debug;
     private void Awake()
     {
         _dataPathData = Path.Combine(Application.persistentDataPath,_fileName);
 
         if (File.Exists(_dataPathData))
         {
+            if (_debug) return;
+
             _playerData = DataSaver.Deserializable<PlayerData>(_dataPathData);
 
             Vector3 startPosition = new Vector3(_playerData.Position.X, _playerData.Position.Y, _playerData.Position.Z);
