@@ -3585,9 +3585,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1977671913409373743, guid: 25afe760b9651104782d509a70aa6200,
         type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977671913409373743, guid: 25afe760b9651104782d509a70aa6200,
+        type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 312416816}
+    - target: {fileID: 2269489296465513818, guid: 25afe760b9651104782d509a70aa6200,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269489296465513818, guid: 25afe760b9651104782d509a70aa6200,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2563775359964163232, guid: 25afe760b9651104782d509a70aa6200,
         type: 3}
       propertyPath: m_LocalPosition.x
