@@ -11,6 +11,7 @@ public class TargetingState : StateMachineBehaviour
         if (animator.transform.parent.TryGetComponent(out _myEnemy))
         {
             Debug.Log("Все ок");
+            _myEnemy.Agent.transform.LookAt(_myEnemy.Player.transform, Vector3.up);
         }
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

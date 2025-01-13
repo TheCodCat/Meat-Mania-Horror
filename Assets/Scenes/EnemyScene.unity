@@ -564,10 +564,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1910330307}
-    - targetCorrespondingSourceObject: {fileID: -1781356600409242780, guid: 5b48405bd757b8844af1473aa66afe74,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 944945726}
   m_SourcePrefab: {fileID: 100100000, guid: 5b48405bd757b8844af1473aa66afe74, type: 3}
 --- !u!114 &487252677 stripped
 MonoBehaviour:
@@ -1040,35 +1036,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &723093538 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1781356600409242780, guid: 5b48405bd757b8844af1473aa66afe74,
-    type: 3}
-  m_PrefabInstance: {fileID: 404189109}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &944945725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3321919801592875672, guid: 5b48405bd757b8844af1473aa66afe74,
     type: 3}
   m_PrefabInstance: {fileID: 404189109}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &944945726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723093538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e532cb54c586edf4fb2814ca4e121c97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _raysCount: 10
-  _distance: 5
-  _angle: 50
-  _offset: {x: 0, y: -0.3, z: 0}
-  _target: {fileID: 571722552}
 --- !u!1 &1040898650 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 524133534173937269, guid: 17b935ed90fba30449e1ce187947c79b,
@@ -1759,6 +1732,7 @@ GameObject:
   - component: {fileID: 1967724604}
   - component: {fileID: 1967724605}
   - component: {fileID: 1967724608}
+  - component: {fileID: 1967724609}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -1822,7 +1796,7 @@ MonoBehaviour:
     m_Bits: 64
   EnemyParametrs: {fileID: 11400000, guid: f0c3ca4200ed75741bde917ca7c720ae, type: 2}
   Head: {fileID: 944945725}
-  FieldOfView: {fileID: 944945726}
+  FieldOfView: {fileID: 1967724609}
   WPF:
   - {fileID: 178371536}
   - {fileID: 362648375}
@@ -1847,6 +1821,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1967724609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967724602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e532cb54c586edf4fb2814ca4e121c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _raysCount: 10
+  _distance: 5
+  _angle: 50
+  _offset: {x: 0, y: 1, z: 0}
+  _target: {fileID: 571722552}
 --- !u!1 &2021162270
 GameObject:
   m_ObjectHideFlags: 0
