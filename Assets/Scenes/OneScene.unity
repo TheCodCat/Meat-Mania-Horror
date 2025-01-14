@@ -411,6 +411,7 @@ MonoBehaviour:
   PlayerInput: {fileID: 1007844379}
   _playerTransform: {fileID: 1007844378}
   characterController: {fileID: 1007844377}
+  _playerMover: {fileID: 0}
   _head: {fileID: 1007844376}
   _camera: {fileID: 1007844375}
   _saveController: {fileID: 1007844374}
@@ -10685,7 +10686,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _parentNewObjectsUnderSceneContext: 0
-  _contractNames: []
+  _contractNames:
+  - OneScene
   _parentContractNames: []
 --- !u!4 &2129165258
 Transform:

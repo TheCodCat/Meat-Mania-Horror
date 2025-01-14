@@ -44,7 +44,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: d3f0b6ff402552a43bab805794585e27, type: 2}
   m_InitialState: 0
-  m_WrapMode: 2
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 2563775359964163232}
   - component: {fileID: 5386585124471644414}
   - component: {fileID: 1295771336071412918}
+  - component: {fileID: 1422203833587095648}
   m_Layer: 0
   m_Name: Locker
   m_TagString: Untagged
@@ -443,6 +444,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!208 &1422203833587095648
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262741538609248695}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6575646652434298675
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +766,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: c95f9b7f7a6fb184b933479d29a10315, type: 2}
   m_InitialState: 0
-  m_WrapMode: 2
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -815,8 +832,8 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 5386585124471644414}
           m_TargetAssemblyTypeName: LockerController, Assembly-CSharp
-          m_MethodName: SetStateGame
-          m_Mode: 1
+          m_MethodName: SetStateLocker
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -827,8 +844,8 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 5386585124471644414}
           m_TargetAssemblyTypeName: LockerController, Assembly-CSharp
-          m_MethodName: SetStateLocker
-          m_Mode: 6
+          m_MethodName: SetStateGame
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

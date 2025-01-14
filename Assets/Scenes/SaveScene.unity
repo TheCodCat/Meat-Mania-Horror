@@ -1120,6 +1120,7 @@ MonoBehaviour:
   PlayerInput: {fileID: 191838129}
   _playerTransform: {fileID: 191838130}
   characterController: {fileID: 191838128}
+  _playerMover: {fileID: 0}
   _head: {fileID: 312416816}
   _camera: {fileID: 1912264870}
   _saveController: {fileID: 191838123}
@@ -1185,6 +1186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346556395330669214, guid: 17b935ed90fba30449e1ce187947c79b,
+        type: 3}
+      propertyPath: _debug
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
