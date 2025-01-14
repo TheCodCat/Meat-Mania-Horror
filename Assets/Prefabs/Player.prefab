@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 5896753992815405780}
   - component: {fileID: 4286901297206516795}
   - component: {fileID: 5569174962694573295}
+  - component: {fileID: 6061361715595450124}
+  - component: {fileID: 4595748910420201580}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -381,6 +383,7 @@ MonoBehaviour:
       X: 0
       Y: 0
       Z: 0
+  _debug: 1
 --- !u!95 &5896753992815405780
 Animator:
   serializedVersion: 5
@@ -426,6 +429,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1351e257591da4a8a6704af59c8e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6061361715595450124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524133534173937269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7ded01a8d030340b40559cfa2407ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotateMoment: 0.02
+  _inputRotateObject: 0
+  _openRotate: 0
+  _vectorRotate: 1
+  _currentDoor: {fileID: 0}
+--- !u!114 &4595748910420201580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524133534173937269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4ecdcab65bc0b44a4b9cfc6e78b45e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 0}
+  _threslod: 0
+  _sensityvity: 0.1
 --- !u!1 &661283544239120992
 GameObject:
   m_ObjectHideFlags: 0

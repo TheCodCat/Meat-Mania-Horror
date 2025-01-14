@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class FieldOfView : MonoBehaviour
 {
@@ -8,11 +8,20 @@ public class FieldOfView : MonoBehaviour
     [Range(0, 360)]
     public float angle;
 
-    public GameObject playerRef;
+    [SerializeField] private float _threslod;
+    public Transform playerRef { get; set; }
 
     public LayerMask targetMask;
     public LayerMask ObstacleMask;
     public bool canSeePlayer;
+    private LoudnessToMicrophone _loudnessToMicrophone;
+
+    [Inject]
+    public void Construct(CharacterController characterController, LoudnessToMicrophone loudnessToMicrophone)
+    {
+        playerRef = characterController.transform;
+        _loudnessToMicrophone = loudnessToMicrophone;
+    }
 
     public bool FieldOfViewCheck()
     {
@@ -46,6 +55,9 @@ public class FieldOfView : MonoBehaviour
         }
         else if (canSeePlayer)
             canSeePlayer = false;
+
+        if (_loudnessToMicrophone.Loudness > _threslod)
+            canSeePlayer = true;
 
         return canSeePlayer;
     }

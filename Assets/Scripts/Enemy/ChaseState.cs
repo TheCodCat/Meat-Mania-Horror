@@ -18,7 +18,7 @@ namespace Assets.Scripts.Enemy
         }
         public override void UpdateState()
         {
-            if (_enemyAI.FieldOfView.FieldOfViewCheck() && !_enemyAI.Check_LastPoint)
+            if(_enemyAI.FieldOfView.FieldOfViewCheck() && !_enemyAI.Check_LastPoint)
             {
                 _enemyAI.AI_Agent.SetDestination(_enemyAI.Player.transform.position);
                 _enemyAI.Last_point = new Vector3(_enemyAI.Player.transform.position.x, _enemyAI.Player.transform.position.y, _enemyAI.Player.transform.position.z);

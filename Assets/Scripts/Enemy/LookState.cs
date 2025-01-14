@@ -18,13 +18,7 @@ namespace Assets.Scripts.Enemy
 
             _enemyAI.Animator.SetTrigger(EnemyAI.LOOK_KEY);
 
-            if (_enemyAI.FieldOfView.FieldOfViewCheck())
-            {
-                Debug.Log("Приследование");
-                _enemyAI.StateMachine.ChangeState(_enemyAI.ChaseState);
-            }
-
-                await UniTask.Delay(TimeSpan.FromSeconds(UnityEngine.Random.Range(2, 4)));
+            await UniTask.Delay(TimeSpan.FromSeconds(UnityEngine.Random.Range(2, 4)));
 
             if (_enemyAI.FieldOfView.FieldOfViewCheck())
             {
@@ -35,11 +29,6 @@ namespace Assets.Scripts.Enemy
             {
                 _enemyAI.StateMachine.ChangeState(_enemyAI.PatrollState);
             }
-
-        }
-        public override void EndState()
-        {
-            _enemyAI.Check_LastPoint = false;
         }
     }
 }
