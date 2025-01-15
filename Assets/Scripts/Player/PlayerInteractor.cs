@@ -11,6 +11,8 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Sprite _spriteNotInteract;
     [SerializeField] private Sprite _spriteInteract;
+    [SerializeField] private GameObject _light;
+    [SerializeField] private bool _lightEnable;
 
     [Inject]
     public void Construct(CinemachineVirtualCamera camera)
@@ -50,5 +52,11 @@ public class PlayerInteractor : MonoBehaviour
             else _image.sprite = _spriteNotInteract;
         }
         else _image.sprite = _spriteNotInteract;
+    }
+
+    public void ActiveLight(InputAction.CallbackContext callbackContext)
+    {
+        _lightEnable = !_lightEnable;
+        _light.SetActive(_lightEnable);
     }
 }

@@ -19,7 +19,9 @@ public class DoorManader : MonoBehaviour
         _inputRotateObject += callbackContext.ReadValue<Vector2>().x * _rotateMoment;
 
         _inputRotateObject %= 360;
+        _currentDoor.Rotation.x %= 360;
         _currentDoor.Rotation.y %= 360;
+        _currentDoor.Rotation.z %= 360;
 
         _currentDoor.Rotation = _vectorRotate switch
         {
@@ -32,7 +34,15 @@ public class DoorManader : MonoBehaviour
 
         _currentDoor.Transform.localEulerAngles = _currentDoor.Rotation;
 
-        if(_currentDoor.Rotation.y <= _openRotate + 5 && _currentDoor.Rotation.y >= _openRotate - 5)
+        float currentratio = _vectorRotate switch
+        {
+            VectorRotate.X => _currentDoor.Rotation.x,
+            VectorRotate.Y => _currentDoor.Rotation.y,
+            VectorRotate.Z => _currentDoor.Rotation.z,
+            _ => 0
+        };
+
+        if(currentratio <= _openRotate + 5 && currentratio >= _openRotate - 5)
         {
             Debug.Log("Дверь открыта");
             _currentDoor.Animator.SetTrigger("Open");
