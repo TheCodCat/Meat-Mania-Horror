@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Playables;
+using Zenject;
 
 public class DoorInteract : MonoBehaviour, IInteractable
 {
@@ -11,9 +12,21 @@ public class DoorInteract : MonoBehaviour, IInteractable
     [SerializeField] private PlayableDirector _playableDirectorExit;
     [SerializeField] private bool _isOpenKey;
     [SerializeField] private bool _isOpen;
+    private SaveController _saveController;
+
+    [Inject]
+    public void Construct(SaveController saveController)
+    {
+        _saveController = saveController;
+    }
+
+    public void InitSave(bool isopen)
+    {
+        _isOpenKey = isopen;
+    }
+
     public void Interact()
     {
-        Debug.Log(gameObject.name);
         if (!_isOpenKey)
         {
             Init();
@@ -32,13 +45,17 @@ public class DoorInteract : MonoBehaviour, IInteractable
     {
         Startrotation = Transform.localEulerAngles;
         DoorManader.instance.SetOpenDoor(this);
+        DoorManader.instance.IsOpenCurrentDoor = false;
         _playableDirectorEnter.Play();
     }
-    public void DoorOpenAnimation()
+    public void DoorOpenAnimation(string log = "Нен")
     {
+        Debug.Log(log);
+        Animator.SetTrigger("Open");
         _isOpen = true;
         _isOpenKey = true;
         _playableDirectorExit.Play();
+        _saveController.PlayerData.AddDoor(_isOpen);
         PlayerChangeMap.Instance.ChangeState(PlayerState.Game);
         DoorManader.instance.SetOpenDoor(null);
     }
@@ -46,5 +63,20 @@ public class DoorInteract : MonoBehaviour, IInteractable
     public void ExitPlayebleDirector(PlayableDirector playableDirector)
     {
         playableDirector.Stop();
+    }
+
+    public DoorInteract GetDoor()
+    {
+        return this;
+    }
+
+    public void ExitDoor()
+    {
+        _playableDirectorExit.Play();
+    }
+
+    public bool GetOpen()
+    {
+        return _isOpenKey;
     }
 }

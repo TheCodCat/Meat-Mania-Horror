@@ -1,8 +1,16 @@
-﻿namespace Assets.Scripts.SaveScripts
+﻿using System.Collections.Generic;
+
+namespace Assets.Scripts.SaveScripts
 {
     [System.Serializable]
     public class PlayerData
     {
         public MyVector3 Position;
+        public List<bool> Doors;
+
+        public void AddDoor(bool dooropen)
+        {
+            Doors.Add(dooropen);
+        }
     }
 }

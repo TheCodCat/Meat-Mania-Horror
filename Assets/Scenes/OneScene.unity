@@ -741,6 +741,18 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &255059012 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3068619304848208378, guid: dc5203759d340de46a2eb5906ca82082,
+    type: 3}
+  m_PrefabInstance: {fileID: 795247916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9066c3d0776a90540b6500d85d218ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &268038929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,6 +2334,11 @@ PrefabInstance:
       propertyPath: _vectorRotate
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6061361715595450124, guid: 17b935ed90fba30449e1ce187947c79b,
+        type: 3}
+      propertyPath: _saveController
+      value: 
+      objectReference: {fileID: 1007844374}
     - target: {fileID: 6828457274872920698, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
       propertyPath: m_Lens.NearClipPlane
@@ -2360,7 +2377,7 @@ PrefabInstance:
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
@@ -2405,7 +2422,7 @@ PrefabInstance:
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetOpenDoor
+      value: ExitDoor
       objectReference: {fileID: 0}
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
@@ -2435,7 +2452,7 @@ PrefabInstance:
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: DoorInteract, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6850195355217656032, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
@@ -2452,6 +2469,36 @@ PrefabInstance:
       propertyPath: _debug
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7346556395330669214, guid: 17b935ed90fba30449e1ce187947c79b,
+        type: 3}
+      propertyPath: _doorManader
+      value: 
+      objectReference: {fileID: 1007844401}
+    - target: {fileID: 7346556395330669214, guid: 17b935ed90fba30449e1ce187947c79b,
+        type: 3}
+      propertyPath: _doors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346556395330669214, guid: 17b935ed90fba30449e1ce187947c79b,
+        type: 3}
+      propertyPath: _doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 255059012}
+    - target: {fileID: 7346556395330669214, guid: 17b935ed90fba30449e1ce187947c79b,
+        type: 3}
+      propertyPath: PlayerData.Doors.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346556395330669214, guid: 17b935ed90fba30449e1ce187947c79b,
+        type: 3}
+      propertyPath: _playerData.Doors.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7346556395330669214, guid: 17b935ed90fba30449e1ce187947c79b,
+        type: 3}
+      propertyPath: _playerData.Doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 255059012}
     - target: {fileID: 7373231979011124326, guid: 17b935ed90fba30449e1ce187947c79b,
         type: 3}
       propertyPath: near clip plane

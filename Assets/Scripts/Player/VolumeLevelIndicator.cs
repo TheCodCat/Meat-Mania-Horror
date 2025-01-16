@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Cysharp.Threading.Tasks;
-using System;
 
 public class VolumeLevelIndicator : MonoBehaviour
 {
@@ -22,6 +20,6 @@ public class VolumeLevelIndicator : MonoBehaviour
         float fill = Mathf.Lerp(_minLevel,_maxLevel, volume) * Time.deltaTime;
 
         _indicator.fillAmount = fill;
-        Debug.Log(fill);
+        //Debug.Log(fill);
     }
 }

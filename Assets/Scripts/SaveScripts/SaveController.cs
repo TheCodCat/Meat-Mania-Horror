@@ -7,10 +7,11 @@ using Zenject;
 using Assets.Scripts.Models;
 using Assets.Scripts.SaveScripts;
 using System.IO;
+using System.Linq;
+using System.Collections.Generic;
 
 public class SaveController : MonoBehaviour
 {
-
     public PlayableDirector CurrentPlayableDirector { get;set; }
     private IDrawning Component;
 
@@ -21,11 +22,12 @@ public class SaveController : MonoBehaviour
 
     RaycastHit _raycastHit;
     Ray _ray;
-
     private CharacterController _characterController;
+    [SerializeField] private DoorManader _doorManader;
     [SerializeField] private string _fileName;
     [SerializeField] private string _dataPathData;
-    [SerializeField] private PlayerData _playerData;
+    [SerializeField] private List<DoorInteract> _doors;
+    public PlayerData PlayerData;
     [SerializeField] private bool _debug;
     private void Awake()
     {
@@ -35,10 +37,18 @@ public class SaveController : MonoBehaviour
         {
             if (_debug) return;
 
-            _playerData = DataSaver.Deserializable<PlayerData>(_dataPathData);
+            PlayerData = DataSaver.Deserializable<PlayerData>(_dataPathData);
 
-            Vector3 startPosition = new Vector3(_playerData.Position.X, _playerData.Position.Y, _playerData.Position.Z);
+            Vector3 startPosition = new Vector3(PlayerData.Position.X, PlayerData.Position.Y, PlayerData.Position.Z);
             _characterController.transform.position = startPosition;
+
+            Debug.Log(PlayerData.Doors.Count);
+            if (PlayerData.Doors.Equals(null)) return;
+
+            for (int i = 0; i < PlayerData.Doors.Count; i++)
+            {
+                _doors[i].InitSave(PlayerData.Doors[i]);
+            }
         }
     }
 
@@ -127,11 +137,16 @@ public class SaveController : MonoBehaviour
     {
         PlayerData playerData = new PlayerData();
         playerData.Position = new MyVector3(vector3.x, vector3.y, vector3.z);
-        _playerData.Position = playerData.Position;
-        DataSaver.Serializable(_dataPathData, _playerData);
+        PlayerData.Position = playerData.Position;
 
+        DataSaver.Serializable(_dataPathData, PlayerData);
 
         ExitSaves();
         Debug.Log("Сохранение прошло");
+    }
+
+    public void SetOpenDoor(DoorInteract doorInteract)
+    {
+        PlayerData.AddDoor(doorInteract.GetOpen());
     }
 }

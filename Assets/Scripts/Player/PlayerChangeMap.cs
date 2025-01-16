@@ -55,7 +55,7 @@ public class PlayerChangeMap : MonoBehaviour
         }
 
         PlayerInput.SwitchCurrentActionMap(newstate);
-        Debug.Log(PlayerInput.currentActionMap);
+        //Debug.Log(PlayerInput.currentActionMap);
     }
 
     public void PauseMenu(InputAction.CallbackContext callbackContext)
