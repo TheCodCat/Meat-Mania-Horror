@@ -7,6 +7,8 @@ namespace Assets.Scripts.SaveScripts
     {
         public MyVector3 Position;
         public List<bool> Doors;
+        public List<bool> Triggers;
+        public bool IsGrapKey;
 
         public void AddDoor(bool dooropen)
         {

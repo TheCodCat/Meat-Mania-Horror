@@ -8,4 +8,8 @@ public class PlayerController : MonoBehaviour
     {
         IsPaperGiv = true;
     }
+    public void SetGiveKey(bool give)
+    {
+        IsPaperGiv = give;
+    }
 }

@@ -7,7 +7,6 @@ using Zenject;
 using Assets.Scripts.Models;
 using Assets.Scripts.SaveScripts;
 using System.IO;
-using System.Linq;
 using System.Collections.Generic;
 
 public class SaveController : MonoBehaviour
@@ -27,6 +26,8 @@ public class SaveController : MonoBehaviour
     [SerializeField] private string _fileName;
     [SerializeField] private string _dataPathData;
     [SerializeField] private List<DoorInteract> _doors;
+    [SerializeField] private List<GameCutSceneTrigger> _gameCutSceneTriggers;
+    [SerializeField] private PlayerController _playerController;
     public PlayerData PlayerData;
     [SerializeField] private bool _debug;
     private void Awake()
@@ -41,6 +42,8 @@ public class SaveController : MonoBehaviour
 
             Vector3 startPosition = new Vector3(PlayerData.Position.X, PlayerData.Position.Y, PlayerData.Position.Z);
             _characterController.transform.position = startPosition;
+            _playerController.SetGiveKey(PlayerData.IsGrapKey);
+
 
             Debug.Log(PlayerData.Doors.Count);
             if (PlayerData.Doors.Equals(null)) return;
@@ -48,6 +51,11 @@ public class SaveController : MonoBehaviour
             for (int i = 0; i < PlayerData.Doors.Count; i++)
             {
                 _doors[i].InitSave(PlayerData.Doors[i]);
+            }
+
+            for (int i = 0; i < PlayerData.Triggers.Count; i++)
+            {
+                _gameCutSceneTriggers[i].Init(PlayerData.Triggers[i]);
             }
         }
     }

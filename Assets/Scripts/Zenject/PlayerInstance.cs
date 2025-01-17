@@ -15,11 +15,13 @@ public class PlayerInstance : MonoInstaller
     [SerializeField] private Camera _camera;
     [SerializeField] private SaveController _saveController;
     [SerializeField] private LoudnessToMicrophone _loudnessToMicrophone;
+    [SerializeField] private PlayerController _playerController;
     public override void InstallBindings()
     {
         Container.Bind<CharacterController>().FromInstance(characterController);
         Container.Bind<Transform>().FromInstance(_playerTransform);
 
+        Container.BindInstance(_playerController);
         Container.BindInstance(_loudnessToMicrophone);
         Container.BindInstance(_playerMover);
         Container.BindInstance(_head);

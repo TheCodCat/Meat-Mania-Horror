@@ -13,11 +13,13 @@ public class DoorInteract : MonoBehaviour, IInteractable
     [SerializeField] private bool _isOpenKey;
     [SerializeField] private bool _isOpen;
     private SaveController _saveController;
+    private PlayerController _playerController;
 
     [Inject]
-    public void Construct(SaveController saveController)
+    public void Construct(SaveController saveController, PlayerController playerController)
     {
         _saveController = saveController;
+        _playerController = playerController;
     }
 
     public void InitSave(bool isopen)
@@ -27,6 +29,7 @@ public class DoorInteract : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if(!_playerController.IsPaperGiv) return;
         if (!_isOpenKey)
         {
             Init();

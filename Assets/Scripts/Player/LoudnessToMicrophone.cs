@@ -6,6 +6,7 @@ public class LoudnessToMicrophone : MonoBehaviour
 {
     public static Action<float> OnMicrophoneVolume;
     [SerializeField] private AudioClip _audioClip;
+    [SerializeField] private bool _isMicro;
     private int _samplesWindow = 32;
     private float _loudness;
     public float Loudness
@@ -31,13 +32,26 @@ public class LoudnessToMicrophone : MonoBehaviour
 
     void InitMicrophone()
     {
-        var name = Microphone.devices[0];
-        _audioClip = Microphone.Start(name, true, 20, AudioSettings.outputSampleRate);
+        try
+        {
+            _isMicro = Microphone.devices[0].Equals(null) ? false : true;
+            if (_isMicro)
+            {
+                var name = Microphone.devices[0];
+                _audioClip = Microphone.Start(name, true, 20, AudioSettings.outputSampleRate);
+            }
+        }
+        catch(Exception ex)
+        {
+            Debug.Log(ex);
+            Debug.Log("Ï» –Œ‘ŒÕ Õ≈ Õ¿…ƒ≈Õ");
+        }
     }
 
     private void Update()
     {
-        Loudness = GetLoudnessToMicrophone();
+        if(_isMicro)
+            Loudness = GetLoudnessToMicrophone();
     }
 
     public float GetLoudnessToMicrophone()
