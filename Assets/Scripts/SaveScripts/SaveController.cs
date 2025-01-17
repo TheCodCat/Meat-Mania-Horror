@@ -53,9 +53,12 @@ public class SaveController : MonoBehaviour
                 _doors[i].InitSave(PlayerData.Doors[i]);
             }
 
-            for (int i = 0; i < PlayerData.Triggers.Count; i++)
+            if (!PlayerData.Triggers.Equals(null))
             {
-                _gameCutSceneTriggers[i].Init(PlayerData.Triggers[i]);
+                for (int i = 0; i < PlayerData.Triggers.Count; i++)
+                {
+                    _gameCutSceneTriggers[i].Init(PlayerData.Triggers[i]);
+                }
             }
         }
     }
