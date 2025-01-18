@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LoudnessToMicrophone : MonoBehaviour
 {
-    [SerializeField] private Settings _settings;
     public static Action<float> OnMicrophoneVolume;
     [SerializeField] private AudioClip _audioClip;
     private int _samplesWindow = 32;
@@ -25,9 +24,18 @@ public class LoudnessToMicrophone : MonoBehaviour
     [SerializeField] private float _threslod;
     [SerializeField] private float _sensityvity;
 
+    private void OnEnable()
+    {
+        Settings.OnActiveMicro += InitMicrophone;
+    }
+    private void OnDisable()
+    {
+        Settings.OnActiveMicro -= InitMicrophone;
+    }
+
     private void Start()
     {
-        if(_settings.Micro)
+        if(Settings.Micro)
             InitMicrophone();
     }
 
@@ -47,14 +55,22 @@ public class LoudnessToMicrophone : MonoBehaviour
 
     private void Update()
     {
-        if(_settings.Micro)
+        if(Settings.Micro)
             Loudness = GetLoudnessToMicrophone();
     }
 
     public float GetLoudnessToMicrophone()
     {
-        float loudness = GetLoudnessFromAudioClip(Microphone.GetPosition(Microphone.devices[0]), _audioClip);
-        return loudness > _threslod ? loudness * _sensityvity : 0;
+        try
+        {
+            float loudness = GetLoudnessFromAudioClip(Microphone.GetPosition(Microphone.devices[0]), _audioClip);
+            return loudness > _threslod ? loudness * _sensityvity : 0;
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex);
+            return 0;
+        }
     }
 
     public float GetLoudnessFromAudioClip(int clipPosition, AudioClip audioClip)

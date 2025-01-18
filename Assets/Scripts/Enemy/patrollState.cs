@@ -13,6 +13,7 @@ namespace Assets.Scripts.Enemy
         public override void StartState()
         {
             Debug.Log("патруль");
+            _enemyAI.AI_Agent.speed = EnemyAI.PatrollSpeed;
             _enemyAI.AI_Agent.stoppingDistance = 0;
             _enemyAI.AI_Enemy = AI_State.Patrol;
             _enemyAI.Animator.SetTrigger(EnemyAI.PATROLL_KEY);

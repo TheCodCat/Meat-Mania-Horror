@@ -12,6 +12,7 @@ namespace Assets.Scripts.Enemy
         }
         public override void StartState()
         {
+            _enemyAI.AI_Agent.speed = EnemyAI.RunningSpeed;
             _enemyAI.Animator.SetTrigger(EnemyAI.CHASE_KEY);
             _enemyAI.AI_Enemy = AI_State.Chase;
             _enemyAI.AI_Agent.stoppingDistance = 1.2f;

@@ -28,6 +28,9 @@ public class EnemyAI : MonoBehaviour
     public const string CHASE_KEY = "Move";
     public const string LOOK_KEY = "Look";
 
+    public const float PatrollSpeed = 0.5f;
+    public const float RunningSpeed = 2f;
+
     private void Start()
     {
         PatrollState = new PatrollState(this);

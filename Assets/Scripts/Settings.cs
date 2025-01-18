@@ -3,6 +3,7 @@ using TMPro;
 using System.Linq;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System;
 
 public class Settings : MonoBehaviour
 {
@@ -13,7 +14,20 @@ public class Settings : MonoBehaviour
     [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private Slider _slider;
     [SerializeField] private Toggle _micro;
-    public bool Micro => _micro.isOn;
+    public static Action OnActiveMicro;
+    public static bool _micros;
+    public static bool Micro
+    {
+        get
+        {
+            return _micros;
+        }
+        set
+        {
+            _micros = value;
+            OnActiveMicro?.Invoke();
+        }
+    }
 
     private float _minV = -60;
     private float _maxV = 0;
@@ -22,7 +36,9 @@ public class Settings : MonoBehaviour
     {
         if (!Microphone.devices.Length.Equals(0))
         {
+            Micro = true;
             _micro.interactable = true;
+            _micro.enabled = true;
         }
     }
     private void Start()
