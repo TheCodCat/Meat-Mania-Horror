@@ -29,7 +29,7 @@ namespace Assets.Scripts.Enemy
             {
                 if (_enemyAI.AI_Agent.remainingDistance <= 1)
                 {
-                    Debug.Log("+1");
+                    //Debug.Log("+1");
                     _enemyAI.Current_Patch = (_enemyAI.Current_Patch + 1) % _enemyAI.WayPoints.Length;
                     _enemyAI.AI_Agent.SetDestination(_enemyAI.WayPoints[_enemyAI.Current_Patch].transform.position);
                 }
