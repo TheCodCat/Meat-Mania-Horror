@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LoudnessToMicrophone : MonoBehaviour
 {
+    [SerializeField] private Settings _settings;
     public static Action<float> OnMicrophoneVolume;
     [SerializeField] private AudioClip _audioClip;
-    [SerializeField] private bool _isMicro;
     private int _samplesWindow = 32;
     private float _loudness;
     public float Loudness
@@ -27,19 +27,16 @@ public class LoudnessToMicrophone : MonoBehaviour
 
     private void Start()
     {
-        InitMicrophone();
+        if(_settings.Micro)
+            InitMicrophone();
     }
 
     void InitMicrophone()
     {
         try
         {
-            _isMicro = Microphone.devices[0].Equals(null) ? false : true;
-            if (_isMicro)
-            {
-                var name = Microphone.devices[0];
-                _audioClip = Microphone.Start(name, true, 20, AudioSettings.outputSampleRate);
-            }
+            var name = Microphone.devices[0];
+            _audioClip = Microphone.Start(name, true, 20, AudioSettings.outputSampleRate);
         }
         catch(Exception ex)
         {
@@ -50,7 +47,7 @@ public class LoudnessToMicrophone : MonoBehaviour
 
     private void Update()
     {
-        if(_isMicro)
+        if(_settings.Micro)
             Loudness = GetLoudnessToMicrophone();
     }
 

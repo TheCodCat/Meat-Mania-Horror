@@ -12,9 +12,19 @@ public class Settings : MonoBehaviour
     [SerializeField] private Toggle _toggleFullScreen;
     [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private Slider _slider;
+    [SerializeField] private Toggle _micro;
+    public bool Micro => _micro.isOn;
 
     private float _minV = -60;
     private float _maxV = 0;
+
+    private void OnEnable()
+    {
+        if (!Microphone.devices.Length.Equals(0))
+        {
+            _micro.interactable = true;
+        }
+    }
     private void Start()
     {
         resolutions = Screen.resolutions;
