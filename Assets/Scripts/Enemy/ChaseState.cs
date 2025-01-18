@@ -36,6 +36,7 @@ namespace Assets.Scripts.Enemy
         }
         public override void EndState()
         {
+            _enemyAI.AI_Agent.SetDestination(_enemyAI.AI_Agent.transform.position);
             _enemyAI.AI_Agent.stoppingDistance = 1.2f;
         }
     }

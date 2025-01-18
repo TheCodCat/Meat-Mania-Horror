@@ -12,6 +12,7 @@ namespace Assets.Scripts.Enemy
         }
         public override void StartState()
         {
+            Debug.Log("патруль");
             _enemyAI.AI_Agent.stoppingDistance = 0;
             _enemyAI.AI_Enemy = AI_State.Patrol;
             _enemyAI.Animator.SetTrigger(EnemyAI.PATROLL_KEY);
@@ -26,11 +27,11 @@ namespace Assets.Scripts.Enemy
             }
             else
             {
-                _enemyAI.AI_Agent.SetDestination(_enemyAI.WayPoints[_enemyAI.Current_Patch].transform.position);
                 if (_enemyAI.AI_Agent.remainingDistance <= 1)
                 {
-                    _enemyAI.Current_Patch++;
-                    _enemyAI.Current_Patch = _enemyAI.Current_Patch % _enemyAI.WayPoints.Length;
+                    Debug.Log("+1");
+                    _enemyAI.Current_Patch = (_enemyAI.Current_Patch + 1) % _enemyAI.WayPoints.Length;
+                    _enemyAI.AI_Agent.SetDestination(_enemyAI.WayPoints[_enemyAI.Current_Patch].transform.position);
                 }
             }
 
