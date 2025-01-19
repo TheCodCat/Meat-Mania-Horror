@@ -159,4 +159,10 @@ public class SaveController : MonoBehaviour
     {
         PlayerData.AddDoor(doorInteract.GetOpen());
     }
+
+    public void ClearData()
+    {
+        PlayerData = new PlayerData();
+        DataSaver.Serializable(_dataPathData, PlayerData);
+    }
 }

@@ -14,6 +14,7 @@ namespace Assets.Scripts.Enemy
 
         public override async void StartState()
         {
+            _enemyAI.Check_LastPoint = false;
             _enemyAI.AI_Enemy = AI_State.Stay;
 
             _enemyAI.Animator.SetTrigger(EnemyAI.LOOK_KEY);

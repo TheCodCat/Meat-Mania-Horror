@@ -23,6 +23,11 @@ namespace Assets.Scripts.Enemy
             {
                 _enemyAI.AI_Agent.SetDestination(_enemyAI.Player.transform.position);
                 _enemyAI.Last_point = new Vector3(_enemyAI.Player.transform.position.x, _enemyAI.Player.transform.position.y, _enemyAI.Player.transform.position.z);
+                Debug.Log(_enemyAI.AI_Agent.remainingDistance);
+                //if (_enemyAI.AI_Agent.remainingDistance <= 2)
+                //{
+                //    _enemyAI.StateMachine.ChangeState(_enemyAI.AttackEnemy);
+                //}
             }
             else
             {

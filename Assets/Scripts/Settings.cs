@@ -37,6 +37,7 @@ public class Settings : MonoBehaviour
         if (!Microphone.devices.Length.Equals(0))
         {
             Micro = true;
+            _micro.isOn = true;
             _micro.interactable = true;
             _micro.enabled = true;
         }
