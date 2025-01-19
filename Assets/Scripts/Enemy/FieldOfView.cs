@@ -27,6 +27,9 @@ public class FieldOfView : MonoBehaviour
     {
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
+
+
+
         if (rangeChecks.Length != 0)
         {
             Transform target = rangeChecks[0].transform;

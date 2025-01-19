@@ -2517,6 +2517,21 @@ PrefabInstance:
       propertyPath: WayPoints.Array.data[3]
       value: 
       objectReference: {fileID: 827533618}
+    - target: {fileID: 1427387876905333621, guid: bb4d1d95dda022647bfd97b068b29115,
+        type: 3}
+      propertyPath: LockerControllers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427387876905333621, guid: bb4d1d95dda022647bfd97b068b29115,
+        type: 3}
+      propertyPath: LockerControllers.Array.data[0]
+      value: 
+      objectReference: {fileID: 2076850228}
+    - target: {fileID: 1427387876905333621, guid: bb4d1d95dda022647bfd97b068b29115,
+        type: 3}
+      propertyPath: LockerControllers.Array.data[1]
+      value: 
+      objectReference: {fileID: 435438902}
     - target: {fileID: 1504256862621775263, guid: bb4d1d95dda022647bfd97b068b29115,
         type: 3}
       propertyPath: angle
@@ -5120,6 +5135,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 787762208}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &435438902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5386585124471644414, guid: 25afe760b9651104782d509a70aa6200,
+    type: 3}
+  m_PrefabInstance: {fileID: 226451168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a086e099a320aba418c59983a2927b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &450034392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29209,6 +29236,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &2076850228 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5386585124471644414, guid: 25afe760b9651104782d509a70aa6200,
+    type: 3}
+  m_PrefabInstance: {fileID: 1742104293}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a086e099a320aba418c59983a2927b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &2080427582
 MeshCollider:
   m_ObjectHideFlags: 0

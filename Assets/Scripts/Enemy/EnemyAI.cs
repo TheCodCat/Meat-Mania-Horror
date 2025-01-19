@@ -52,7 +52,7 @@ public class EnemyAI : MonoBehaviour
         StateMachine.UpdateState();
         if(Physics.CheckSphere(transform.position,MinRadius, LayerMask))
         {
-            if (LockerControllers.ToList().Contains(LockerControllers.SingleOrDefault(x => x.IsLocker)))
+            if (!LockerControllers.ToList().Contains(LockerControllers.SingleOrDefault(x => x.IsLocker)))
             {
                transform.LookAt(Player.transform);
                DeadPlayer.PlayDead();
