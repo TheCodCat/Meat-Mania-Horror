@@ -568,6 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 336303725}
   - component: {fileID: 336303726}
+  - component: {fileID: 336303727}
   m_Layer: 0
   m_Name: DoorTrigger
   m_TagString: Untagged
@@ -611,6 +612,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!320 &336303727
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336303724}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &341873678 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2713225106313511244, guid: 51919b5b166de3b4982def2c6b3a86af,
@@ -1280,6 +1298,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6322524975194178231, guid: 0c4189616a8048045afd90f267d063c9, type: 3}
+--- !u!95 &1065635107
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065635099}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1071086700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1784,6 +1823,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2109098866}
+    - targetCorrespondingSourceObject: {fileID: 8318976224128595339, guid: 51919b5b166de3b4982def2c6b3a86af,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2109098870}
     - targetCorrespondingSourceObject: {fileID: 2713225106313511244, guid: 51919b5b166de3b4982def2c6b3a86af,
         type: 3}
       insertIndex: -1
@@ -1792,6 +1835,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1065635103}
+    - targetCorrespondingSourceObject: {fileID: 7444542018240076360, guid: 51919b5b166de3b4982def2c6b3a86af,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1065635107}
     - targetCorrespondingSourceObject: {fileID: 2154976212584328493, guid: 51919b5b166de3b4982def2c6b3a86af,
         type: 3}
       insertIndex: -1
@@ -3181,6 +3228,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8829468777091971923, guid: 0c4189616a8048045afd90f267d063c9, type: 3}
+--- !u!95 &2109098870
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109098862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2135721916 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 338884083841897823, guid: 51919b5b166de3b4982def2c6b3a86af,
