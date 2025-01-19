@@ -12,17 +12,19 @@ namespace Assets.Scripts.Enemy
         }
         public override void StartState()
         {
+            _enemyAI.AudioSource.clip = _enemyAI.AudioClipRunning;
+            _enemyAI.AudioSource.Play();
             _enemyAI.AI_Agent.speed = EnemyAI.RunningSpeed;
             _enemyAI.Animator.SetTrigger(EnemyAI.CHASE_KEY);
             _enemyAI.AI_Enemy = AI_State.Chase;
             _enemyAI.AI_Agent.stoppingDistance = 1.2f;
+            _enemyAI.Last_point = new Vector3(_enemyAI.Player.transform.position.x, _enemyAI.Player.transform.position.y, _enemyAI.Player.transform.position.z);
         }
         public override void UpdateState()
         {
             if(_enemyAI.FieldOfView.FieldOfViewCheck())
             {
                 _enemyAI.AI_Agent.SetDestination(_enemyAI.Player.transform.position);
-                _enemyAI.Last_point = new Vector3(_enemyAI.Player.transform.position.x, _enemyAI.Player.transform.position.y, _enemyAI.Player.transform.position.z);
                 Debug.Log(_enemyAI.AI_Agent.remainingDistance);
                 //if (_enemyAI.AI_Agent.remainingDistance <= 2)
                 //{
@@ -42,6 +44,7 @@ namespace Assets.Scripts.Enemy
         }
         public override void EndState()
         {
+            _enemyAI.AudioSource.Stop();
             _enemyAI.AI_Agent.SetDestination(_enemyAI.AI_Agent.transform.position);
             _enemyAI.AI_Agent.stoppingDistance = 1.2f;
         }

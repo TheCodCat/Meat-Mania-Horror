@@ -1,10 +1,15 @@
 using Assets.Scripts.Enemy;
 using Assets.Scripts.Models;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    public LockerController[] LockerControllers;
+    public AudioSource AudioSource;
+    public AudioClip AudioClipWalk;
+    public AudioClip AudioClipRunning;
     public FieldOfView FieldOfView;
     public Animator Animator;
     public NavMeshAgent AI_Agent;
@@ -31,8 +36,8 @@ public class EnemyAI : MonoBehaviour
     public const string LOOK_KEY = "Look";
     public const string ATTACK_KEY = "Attack";
 
-    public const float PatrollSpeed = 0.5f;
-    public const float RunningSpeed = 2f;
+    public const float PatrollSpeed = 1f;
+    public const float RunningSpeed = 3f;
 
     private void Start()
     {
@@ -47,8 +52,11 @@ public class EnemyAI : MonoBehaviour
         StateMachine.UpdateState();
         if(Physics.CheckSphere(transform.position,MinRadius, LayerMask))
         {
-            transform.LookAt(Player.transform);
-           DeadPlayer.PlayDead();
+            if (LockerControllers.ToList().Contains(LockerControllers.SingleOrDefault(x => x.IsLocker)))
+            {
+               transform.LookAt(Player.transform);
+               DeadPlayer.PlayDead();
+            }
         }
     }
     private void OnDrawGizmos()

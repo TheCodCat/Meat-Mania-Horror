@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 543c58c4e78ba23449d8506e13289bcc, type: 3}
-  m_Name: ScriptableInstaller
+  m_Script: {fileID: 11500000, guid: d6fa2d92fc1b3f34da284357edf89c3b, type: 3}
+  m_Name: PlayerKill
   m_EditorClassIdentifier: 
-  SettingsDraw: {fileID: 11400000, guid: 64d4fdf0ae5069348bf3b618f94db6b1, type: 2}

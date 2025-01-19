@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using Zenject;
 
-public class DoorInteract : MonoBehaviour, IInteractable
+public abstract class DoorInteract : MonoBehaviour, IInteractable
 {
     public Vector3 Rotation;
     public Transform Transform;
@@ -10,15 +10,13 @@ public class DoorInteract : MonoBehaviour, IInteractable
     public Animator Animator;
     [SerializeField] private PlayableDirector _playableDirectorEnter;
     [SerializeField] private PlayableDirector _playableDirectorExit;
-    [SerializeField] private bool _isOpenKey;
-    [SerializeField] private bool _isOpen;
-    private SaveController _saveController;
-    private PlayerController _playerController;
+    [SerializeField] protected bool _isOpenKey;
+    [SerializeField] protected bool _isOpen;
+    protected PlayerController _playerController;
 
     [Inject]
-    public void Construct(SaveController saveController, PlayerController playerController)
+    public void Construct(PlayerController playerController)
     {
-        _saveController = saveController;
         _playerController = playerController;
     }
 
@@ -27,7 +25,7 @@ public class DoorInteract : MonoBehaviour, IInteractable
         _isOpenKey = isopen;
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         if(!_playerController.IsPaperGiv) return;
         if (!_isOpenKey)
@@ -58,7 +56,6 @@ public class DoorInteract : MonoBehaviour, IInteractable
         _isOpen = true;
         _isOpenKey = true;
         _playableDirectorExit.Play();
-        _saveController.PlayerData.AddDoor(_isOpen);
         PlayerChangeMap.Instance.ChangeState(PlayerState.Game);
         DoorManader.instance.SetOpenDoor(null);
     }

@@ -1,13 +1,12 @@
 using UnityEngine;
-using Zenject;
 
-public class PaperСlip : MonoBehaviour, IInteractable
+public class MainKey : MonoBehaviour, IInteractable
 {
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private GameObject _parent;
     public void Interact()
     {
-        _playerController.GivePaperClip();
+        _playerController.GiveKeyClip();
         _parent.SetActive(false);
     }
 }

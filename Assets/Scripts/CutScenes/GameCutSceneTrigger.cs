@@ -8,13 +8,6 @@ public class GameCutSceneTrigger : MonoBehaviour
     public bool IsPlayed;
     [SerializeField] private PlayableDirector _playableDirector;
     [SerializeField] private GameObject _enemy;
-    private SaveController _saveController;
-
-    [Inject]
-    public void Construct(SaveController saveController)
-    {
-        _saveController = saveController;
-    }
     private void Start()
     {
         if(IsPlayed)
@@ -39,7 +32,5 @@ public class GameCutSceneTrigger : MonoBehaviour
     public void ExitCutScene()
     {
         _enemy.SetActive(false);
-        _saveController.PlayerData.Triggers.Add(true);
-
     }
 }

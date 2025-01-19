@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8456880872327421670}
   - component: {fileID: 7392468920939227059}
   - component: {fileID: 2269489296465513818}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Escape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,6 +58,7 @@ PlayableDirector:
     value: {fileID: 1295771336071412918}
   m_ExposedReferences:
     m_References:
+    - 2996d7b87d327cd4d878b44967b9a261: {fileID: 0}
     - 77bd82544c93f304592113e61dc03c71: {fileID: 0}
     - 91b0d23856cfb734a91fd00664e2d35e: {fileID: 422276692722055501}
     - da3d4fe2e2aaaa1439191ab584391633: {fileID: 0}
@@ -164,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8842375805939547880}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnterPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -197,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4195098309882031551}
   - component: {fileID: 2356907964583982957}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Virtual CameraEnterPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2238735050745229689}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InsitePoint
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -303,7 +304,7 @@ GameObject:
   - component: {fileID: 5386585124471644414}
   - component: {fileID: 1295771336071412918}
   - component: {fileID: 1422203833587095648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Locker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583682152171785273}
   - component: {fileID: 422276692722055501}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Virtual CameraInsitePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +545,7 @@ GameObject:
   - component: {fileID: 5913729238257094070}
   - component: {fileID: 9105350576333211471}
   - component: {fileID: 4448316843936950501}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +640,7 @@ GameObject:
   - component: {fileID: 5379555330596779929}
   - component: {fileID: 8463990362094220263}
   - component: {fileID: 7565689201166496711}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +734,7 @@ GameObject:
   - component: {fileID: 320353979187275766}
   - component: {fileID: 6263392855722864645}
   - component: {fileID: 1977671913409373743}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +767,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: c95f9b7f7a6fb184b933479d29a10315, type: 2}
   m_InitialState: 0
-  m_WrapMode: 0
+  m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -958,10 +959,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: b82949ccb4572684381f867e693c6fa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: b82949ccb4572684381f867e693c6fa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b82949ccb4572684381f867e693c6fa7,
         type: 3}
       propertyPath: m_Name
       value: Locker
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b82949ccb4572684381f867e693c6fa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: b82949ccb4572684381f867e693c6fa7,
         type: 3}

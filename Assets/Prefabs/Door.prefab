@@ -56,6 +56,7 @@ PlayableDirector:
     m_References:
     - 51cc9686b34851a4db38f305186d086f: {fileID: 0}
     - e4c1fbd49077d4f42be24df2472416a4: {fileID: 7263502996507754536}
+    - cd1b8291d0100da429c1bf9e83906135: {fileID: 0}
     - 81f15d329cda4e642b07d1a0c3b2da3c: {fileID: 7263502996507754536}
 --- !u!114 &1600297248116324945
 MonoBehaviour:
@@ -75,7 +76,7 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3068619304848208378}
+        - m_Target: {fileID: 8214414990665561723}
           m_TargetAssemblyTypeName: DoorInteract, Assembly-CSharp
           m_MethodName: ExitPlayebleDirector
           m_Mode: 2
@@ -423,15 +424,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e488f7c851de5b8468df015f633230f2,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3068619304848208378}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e488f7c851de5b8468df015f633230f2,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 204835289356007877}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e488f7c851de5b8468df015f633230f2,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 9095736397483892894}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e488f7c851de5b8468df015f633230f2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8214414990665561723}
   m_SourcePrefab: {fileID: 100100000, guid: e488f7c851de5b8468df015f633230f2, type: 3}
 --- !u!4 &6098593814196036415 stripped
 Transform:
@@ -445,26 +446,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5992100594912969940}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3068619304848208378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6911158937202784645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9066c3d0776a90540b6500d85d218ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Rotation: {x: 0, y: 0, z: 0}
-  Transform: {fileID: 8313321884928862601}
-  Startrotation: {x: 0, y: 0, z: 0}
-  Animator: {fileID: 9095736397483892894}
-  _playableDirectorEnter: {fileID: 5766053138135584737}
-  _playableDirectorExit: {fileID: 4605020475612323532}
-  _isOpenKey: 0
-  _isOpen: 0
 --- !u!65 &204835289356007877
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -507,6 +488,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8214414990665561723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911158937202784645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087dc2f8a05559346968ee297dd0e7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rotation: {x: 0, y: 0, z: 0}
+  Transform: {fileID: 8313321884928862601}
+  Startrotation: {x: 0, y: 0, z: 0}
+  Animator: {fileID: 9095736397483892894}
+  _playableDirectorEnter: {fileID: 5766053138135584737}
+  _playableDirectorExit: {fileID: 4605020475612323532}
+  _isOpenKey: 0
+  _isOpen: 0
 --- !u!1001 &8136811637715971579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,17 +675,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 17ba18537b7a4ed4ea441a954ee5f6b5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.35954076
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17ba18537b7a4ed4ea441a954ee5f6b5,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.93312943
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17ba18537b7a4ed4ea441a954ee5f6b5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.000000014901163
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17ba18537b7a4ed4ea441a954ee5f6b5,
         type: 3}
@@ -694,7 +695,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 17ba18537b7a4ed4ea441a954ee5f6b5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -137.856
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17ba18537b7a4ed4ea441a954ee5f6b5,
         type: 3}

@@ -10,7 +10,6 @@ public class DoorManader : MonoBehaviour
     [SerializeField] private float _openRotate;
     [SerializeField] private VectorRotate _vectorRotate;
     [SerializeField] private DoorInteract _currentDoor;
-    [SerializeField] private SaveController _saveController;
     public bool IsOpenCurrentDoor;
 
     private void Awake()

@@ -12,6 +12,8 @@ namespace Assets.Scripts.Enemy
         }
         public override void StartState()
         {
+            _enemyAI.AudioSource.clip = _enemyAI.AudioClipWalk;
+            _enemyAI.AudioSource.Play();
             Debug.Log("патруль");
             _enemyAI.AI_Agent.speed = EnemyAI.PatrollSpeed;
             _enemyAI.AI_Agent.stoppingDistance = 0;
@@ -40,6 +42,7 @@ namespace Assets.Scripts.Enemy
 
         public override void EndState()
         {
+            _enemyAI.AudioSource.Stop();
             Debug.Log("Остановочка");
             _enemyAI.AI_Agent.SetDestination(_enemyAI.AI_Agent.transform.position);
         }
