@@ -14,6 +14,7 @@ public class PlayerMover : MonoBehaviour
     private bool _isGround;
     private Vector2 _inputDirection;
     private Vector3 _moveDirecotion;
+    public Vector2 InputDirection => _inputDirection;
 
     private const float _gravity = -9.8f;
 

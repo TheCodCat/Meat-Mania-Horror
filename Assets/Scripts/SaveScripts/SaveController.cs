@@ -146,9 +146,8 @@ public class SaveController : MonoBehaviour
 
     public void SaveGud(Vector3 vector3)
     {
-        PlayerData playerData = new PlayerData();
-        playerData.Position = new MyVector3(vector3.x, vector3.y, vector3.z);
-        PlayerData.Position = playerData.Position;
+        PlayerData.Position = new MyVector3(vector3.x, vector3.y, vector3.z);
+        PlayerData.CountSave += 1;
 
         DataSaver.Serializable(_dataPathData, PlayerData);
 
