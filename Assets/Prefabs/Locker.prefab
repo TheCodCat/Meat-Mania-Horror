@@ -44,8 +44,8 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: d3f0b6ff402552a43bab805794585e27, type: 2}
   m_InitialState: 0
-  m_WrapMode: 0
-  m_DirectorUpdateMode: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 2
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -4575055202310080447, guid: d3f0b6ff402552a43bab805794585e27, type: 2}
@@ -78,13 +78,12 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 95902c9101d830e4b98303ac4ee10f3a, type: 2}
-    - {fileID: 11400000, guid: 041a796932a0a024f894f91a393fe9b6, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 5386585124471644414}
           m_TargetAssemblyTypeName: LockerController, Assembly-CSharp
-          m_MethodName: SetStateInside
+          m_MethodName: SetPositionInsate
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -94,32 +93,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 5386585124471644414}
-          m_TargetAssemblyTypeName: LockerController, Assembly-CSharp
-          m_MethodName: SetPositionEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 5386585124471644414}
-          m_TargetAssemblyTypeName: LockerController, Assembly-CSharp
-          m_MethodName: SetRotationCamera
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 4195098309882031551}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
         - m_Target: {fileID: 5386585124471644414}
           m_TargetAssemblyTypeName: LockerController, Assembly-CSharp
           m_MethodName: SetStateLocker
@@ -134,7 +107,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 5386585124471644414}
           m_TargetAssemblyTypeName: LockerController, Assembly-CSharp
-          m_MethodName: SetPositionInsate
+          m_MethodName: SetStateInside
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -768,7 +741,7 @@ PlayableDirector:
   m_PlayableAsset: {fileID: 11400000, guid: c95f9b7f7a6fb184b933479d29a10315, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
-  m_DirectorUpdateMode: 1
+  m_DirectorUpdateMode: 2
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 0}
@@ -781,11 +754,14 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -3803512883191113281, guid: c95f9b7f7a6fb184b933479d29a10315, type: 2}
     value: {fileID: 1977671913409373743}
+  - key: {fileID: 3525483069731920564, guid: c95f9b7f7a6fb184b933479d29a10315, type: 2}
+    value: {fileID: 1295771336071412918}
   m_ExposedReferences:
     m_References:
     - ae72266973198b84f8216aebdc70e02e: {fileID: 2356907964583982957}
     - a0dc5d22950a8f4448fdf27432fa5d58: {fileID: 0}
     - b471af686b786c24487f42ba53a90a7a: {fileID: 422276692722055501}
+    - 91b80a7b940bde0469edd1f148571639: {fileID: 0}
     - 8e8724cf86ff3c146a23a1be5437f2d7: {fileID: 0}
 --- !u!114 &1977671913409373743
 MonoBehaviour:
@@ -802,7 +778,6 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 95902c9101d830e4b98303ac4ee10f3a, type: 2}
-    - {fileID: 11400000, guid: 041a796932a0a024f894f91a393fe9b6, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -813,19 +788,6 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 5386585124471644414}
-          m_TargetAssemblyTypeName: LockerController, Assembly-CSharp
-          m_MethodName: SetCamera
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: Cinemachine.CinemachineVirtualCamera,
-              Cinemachine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -855,27 +817,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 6263392855722864645}
-          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-          m_MethodName: Stop
-          m_Mode: 1
+        - m_Target: {fileID: 5386585124471644414}
+          m_TargetAssemblyTypeName: LockerController, Assembly-CSharp
+          m_MethodName: SetRotationCamera
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7392468920939227059}
-          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-          m_MethodName: Stop
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 4195098309882031551}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
