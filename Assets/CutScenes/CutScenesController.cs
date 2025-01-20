@@ -5,6 +5,7 @@ using UnityEngine.Playables;
 
 public class CutScenesController : MonoBehaviour
 {
+    [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private List<PlayableDirector> playbles = new List<PlayableDirector>();
     [SerializeField] private PlayableDirector _resumeGame;
     private PlayableDirector _currentDirector;
@@ -46,5 +47,11 @@ public class CutScenesController : MonoBehaviour
     {
 
         _resumeGame.Play();
+    }
+
+    public void CutSceneStatePlayer()
+    {
+        _playerInput.SwitchCurrentActionMap("Timeline");
+        Cursor.lockState = CursorLockMode.None;
     }
 }

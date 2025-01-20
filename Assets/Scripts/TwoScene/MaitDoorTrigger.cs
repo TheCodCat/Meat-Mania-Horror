@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using Cysharp.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class MaitDoorTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private string _sceneName;
+    [SerializeField] private PlayableDirector PlayableDirector;
+    [SerializeField] private PlayerController PlayerController;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.transform.TryGetComponent(out PlayerController))
+        {
+            if(PlayerController.IsMainKey)
+                PlayableDirector.Play();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public async void FinalWin()
     {
-        
+        await SceneManager.LoadSceneAsync(_sceneName).ToUniTask();
     }
 }
